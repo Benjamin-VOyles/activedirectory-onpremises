@@ -29,14 +29,16 @@ This tutorial will show how to implement Active Directory within an Azure VM.<br
 1.Create the first VM, name it DC-1 as in Domain Controller and use Windows server 2022 (2 VCPUs or more are reccommended) and create.
 
 2. Create another vm Naming it Client-1 making sure it is with in the same network as your first VM using Windows 10. Click Create. 
-   *IMPORTANT!!*
+
+*IMPORTANT!!*
+
 3. Make sure to set the Domain Controler VM IP address to static.
 
 4. Go to Networking and then Network Interface, from IP Configurations change the VM IP address from dynamic to static.
  
 5. Confirm both VMs have a connection.
    
-6. Use Remote Desktop to login to Client-1. Then run the command prompt Ping DC-1 (Insert the private ip address) and then add -t for an infinite ping.
+6. Use Remote Desktop to login to Client-1. Then run the command prompt Ping DC-1 (Insert the Private IP Address) and then type after the Private IP Address -t for an infinite ping.
  
 7. Next, log in to DC-1 with Remote Desktop and click the start button and search firewall. Open up Windows Firewall under advanced settings inbound rules and sort protocol section, search for icmpv4, allow via Enable Rule
    
@@ -52,7 +54,7 @@ Installing Active Directory on DC-1.
     
  3. Then name the Domain Server mydomain.com and set the password (Make sure to click Remember It for personal convenience) and proceed by clicking next on all the prompts until finished.
     
- 4.The computer will shut down (This is normal) and it will need to be reconnected to the DC-1 VM. Log in via the domain controler name. mydomain.com/"username" if not able log in the usual way then click on the start search Active Directory. Use Right click on mydomain.com, click new and then for organizational unit call it _EMPLOYEES and click ok. Now do the same thing making a folder for _ADMIN and refresh the directory.
+ 4.The computer will shut down (This is normal) and it will need to be reconnected to the DC-1 VM. Log in via the domain controller name. mydomain.com/"username" if not able log in the usual way then click on the start search Active Directory. Use Right click on mydomain.com, click new and then for organizational unit call it _EMPLOYEES and click ok. Now do the same thing making a folder for _ADMIN and refresh the directory.
 
  5. Under _ADMIN create a new user and name it as an admin account, make a password and be sure to uncheck change password.
     
